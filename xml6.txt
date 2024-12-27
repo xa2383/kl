@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:orientation="vertical"
+ android:padding="16dp"
+ android:gravity="center">
+ <EditText
+ android:id="@+id/phoneNumberEditText"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:hint="Enter phone number"
+ android:inputType="phone"
+ android:gravity="center"
+ android:textSize="18sp"
+ android:padding="10dp"
+ android:layout_marginBottom="16dp"/>
+ <!-- Clear, Call, and Save buttons -->
+ <GridLayout
+ android:layout_width="match_parent"
+ android:layout_height="222dp"
+ android:layout_marginBottom="16dp"
+ android:columnCount="3"
+ android:rowCount="4">
+ <!-- Buttons for number input -->
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="1" />
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="2" />
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="3" />
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="4" />
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="5" />
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="6" />
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="7" />
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="8" />
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="9" />
+ <View
+ android:layout_width="0dp"
+ android:layout_height="0dp"
+ android:layout_columnSpan="1" />
+ <Button
+ style="@style/ButtonNumber"
+ android:onClick="inputNumber"
+ android:text="0" />
+ <View
+ android:layout_width="0dp"
+ android:layout_height="0dp"
+ android:layout_columnSpan="1" />
+ </GridLayout>
+ <LinearLayout
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:orientation="horizontal"
+ android:gravity="center">
+ <Button
+ android:id="@+id/clearBtn"
+ android:layout_width="0dp"
+ android:layout_height="wrap_content"
+ android:layout_weight="1"
+ android:text="Clear"
+ android:textSize="16sp" />
+ <Button
+ android:id="@+id/callBtn"
+ android:layout_width="0dp"
+ android:layout_height="wrap_content"
+ android:layout_weight="1"
+ android:text="Call"
+ android:textSize="16sp" />
+ <Button
+ android:id="@+id/saveBtn"
+ android:layout_width="0dp"
+ android:layout_height="wrap_content"
+ android:layout_weight="1"
+ android:text="Save"
+ android:textSize="16sp" />
+ </LinearLayout>
+</LinearLayout>
+In res/values/style.xml add this.
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <!-- Define the ButtonNumber style -->
+ <style name="ButtonNumber">
+ <item name="android:layout_width">wrap_content</item>
+ <item name="android:layout_height">wrap_content</item>
+ <item name="android:textColor">#FFFFFF</item>
+ <item name="android:background">#FF9800</item>
+ <item name="android:padding">10dp</item>
+ <item name="android:textSize">18sp</item>
+ </style>
+</resources>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBDEV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 400px; /* Reduce container width */
+            margin: 0 auto;
+            padding: 10px; /* Add padding to the container */
+        }
+
+        .program {
+            padding: 8px; /* Reduce padding for program blocks */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px; /* Reduce margin between program blocks */
+            background: #f9f9f9;
+        }
+
+        .program h3 {
+            margin: 0 0 10px;
+            font-size: 14px; /* Slightly smaller font size */
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 6px 10px; /* Adjust button padding */
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px; /* Slightly smaller font size */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>MAD</h2>
+
+        <div class="program">
+            <h3>Program 1 (Visiting Card)</h3>
+            <div class="buttons">
+                <button onclick="copyFromFile('program1/xml.txt')">Copy XML</button>
+                <button onclick="copyFromFile('program1/java.txt')">Copy Java</button>
+            </div>
+        </div>
+
+        <div class="program">
+            <h3>Program 2 (Simple calculator)</h3>
+            <div class="buttons">
+                <button onclick="copyFromFile('program2/xml2.txt')">Copy XML</button>
+                <button onclick="copyFromFile('program2/java2.txt')">Copy Java</button>
+            </div>
+        </div>
+
+        <div class="program">
+            <h3>Program 3(Counter Application)</h3>
+            <div class="buttons">
+                <button onclick="copyFromFile('program3/xml3.txt')">Copy XML</button>
+                <button onclick="copyFromFile('program3/java3.txt')">Copy Java</button>
+            </div>
+        </div>
+
+        <div class="program">
+            <h3>Program 4(Text-to-speech)</h3>
+            <div class="buttons">
+                <button onclick="copyFromFile('program4/xml4.txt')">Copy XML</button>
+                <button onclick="copyFromFile('program4/java4.txt')">Copy Java</button>
+            </div>
+        </div>
+
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        async function copyFromFile(fileName) {
+            try {
+                const response = await fetch(fileName);
+                if (!response.ok) {
+                    throw new Error('File not found');
+                }
+                const content = await response.text();
+
+                // Create a temporary textarea element to hold the text
+                const textarea = document.createElement('textarea');
+                textarea.value = content;
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                showMessage('Copied successfully!');
+            } catch (err) {
+                showMessage('Failed to copy: ' + err.message);
+            }
+        }
+
+        function showMessage(msg) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = msg;
+            setTimeout(() => {
+                messageDiv.textContent = '';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
